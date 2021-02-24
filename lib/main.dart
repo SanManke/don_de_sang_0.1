@@ -48,6 +48,7 @@ class _MyAppState extends State<MyApp> {
                 alignment: Alignment.topCenter,
                 child: Text('Gout San Sove Lavi',
                 style: TextStyle(
+                  fontFamily: 'BebasNeue',
                   fontSize: 30.0,
                   color: Colors.red,
                 ),
@@ -59,6 +60,7 @@ class _MyAppState extends State<MyApp> {
                   alignment: Alignment.bottomCenter,
                   child: Text('POWERED BY SPOTLIGHT',
                   style: TextStyle(
+                    fontFamily: 'BebasNeue',
                   color: Colors.red
                   ),
                   ),

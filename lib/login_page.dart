@@ -1,3 +1,5 @@
+
+import 'package:don_de_sang/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -55,6 +57,48 @@ Widget buildPhone() {
   );
 }
 
+  class ConnectBtn extends StatelessWidget {
+
+    BuildContext context;
+
+    ConnectBtn({this.context});
+
+    @override
+    Widget build(BuildContext context) {
+      return Container(
+        padding: EdgeInsets.symmetric(vertical: 25),
+        width: double.infinity,
+        child: RaisedButton(
+          elevation: 5,
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) {
+                    return Dashboard();
+                  }
+              ),
+            );
+          },
+          padding: EdgeInsets.all(15),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15)
+          ),
+          color: Colors.white,
+          child: Text(
+            'CONNECT',
+            style: TextStyle(
+                color: Color(0xffb60d29),
+                fontSize: 18,
+                fontWeight: FontWeight.bold
+            ),
+          ),
+        ),
+      );
+    }
+  }
+
+
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
@@ -79,6 +123,7 @@ class _LoginPageState extends State<LoginPage> {
                   )
               ),
               child: SingleChildScrollView(
+                physics: AlwaysScrollableScrollPhysics(),
                 padding: EdgeInsets.symmetric(
                   horizontal: 25,
                   vertical: 120
@@ -88,6 +133,7 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     Text('Sign In',
                       style: TextStyle(
+                          fontFamily: 'BebasNeue',
                           color: Colors.white,
                           fontSize: 40,
                           fontWeight: FontWeight.bold
@@ -95,6 +141,8 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     SizedBox(height: 50),
                     buildPhone(),
+                    SizedBox(height: 50,),
+                    ConnectBtn(context: context,)
                   ],
                 ),
               ),

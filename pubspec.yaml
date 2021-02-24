@@ -49,6 +49,6 @@ flutter:
     - assets/
 
   fonts:
-    - family: RaleWay
+    - family: BebasNeue
       fonts:
-        - asset: fonts/BebasNeue-Regular.ttf
+      - asset: fonts/BebasNeue-Regular.ttf
