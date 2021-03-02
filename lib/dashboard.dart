@@ -1,3 +1,4 @@
+import 'package:don_de_sang/don_page.dart';
 import 'package:flutter/material.dart';
 import 'griddashboard.dart';
 
@@ -21,12 +22,23 @@ class _DashboardState extends State<Dashboard> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Dashboad', style: TextStyle(fontFamily: 'BebasNeue',
-                    color: Colors.red,
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold
-                    ),
-                    ),
+                    RaisedButton(onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return Don();
+                          },
+                        ),
+                      );
+                    },
+                      child :Text('Dashboard', style: TextStyle(fontFamily: 'BebasNeue',
+                          color: Colors.red,
+                          fontSize: 40,
+                          fontWeight: FontWeight.bold
+                      ),
+                      ),
+                    )
                   ],
                 ),
               ],
@@ -35,12 +47,30 @@ class _DashboardState extends State<Dashboard> {
           SizedBox(
             height: 40,
           ),
-          GridDashboard()
+          GridDashboard(),
         ],
       ),
     );
   }
 }
+
+
+//bottomSheet: Container(
+//height: 100.0,
+//width: double.infinity,
+//color: Color(0xffb60d29),
+//child: Center(
+//child: Padding(
+//padding: EdgeInsets.only(bottom: 30.0),
+//child: Text('Actualites', style: TextStyle(color: Colors.white,
+//fontSize: 20.0,
+//fontWeight: FontWeight.bold,
+//),
+//),
+//),
+//),
+//),
+
 
 
 //IconButton(

@@ -50,18 +50,18 @@ class _MyAppState extends State<MyApp> {
                 style: TextStyle(
                   fontFamily: 'BebasNeue',
                   fontSize: 30.0,
-                  color: Colors.red,
+                  color: Color(0xffe41134),
                 ),
                 ),
               ),
-              SizedBox(height: 560,),
+              SizedBox(height: 580,),
               Container(
                 child: Align(
                   alignment: Alignment.bottomCenter,
                   child: Text('POWERED BY SPOTLIGHT',
                   style: TextStyle(
                     fontFamily: 'BebasNeue',
-                  color: Colors.red
+                  color: Color(0xffe41134)
                   ),
                   ),
                 ),
