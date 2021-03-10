@@ -31,9 +31,14 @@ class _Don_RegularState extends State<Don_Regular> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xffb60d29),
+        title: Text('Regular'),
+
+
+      ),
       body: ListView(
         children: [
-          _top(),
           SizedBox(
             height: 150,
           ),
@@ -101,37 +106,3 @@ class _Don_RegularState extends State<Don_Regular> {
   }
 }
 
-_top() {
-  return Container(
-    padding: EdgeInsets.all(16.0),
-    decoration: BoxDecoration(
-      color: Color(0xffb60d29),
-    ),
-    child: Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              children: [
-                CircleAvatar(
-                  backgroundImage: AssetImage("assets/woodens.jpg"),
-                ),
-                SizedBox(
-                  width: 10.0,
-                ),
-                Text(
-                  'DON Regular',
-                  style: TextStyle(
-                      fontFamily: 'BebasNeue',
-                      fontSize: 30.0,
-                      color: Colors.white),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ],
-    ),
-  );
-}

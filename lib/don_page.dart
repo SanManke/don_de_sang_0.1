@@ -1,5 +1,4 @@
 import 'package:don_de_sang/don_regular.dart';
-import 'package:don_de_sang/don_spontaneous.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'don_spontaneous.dart';
@@ -52,7 +51,7 @@ class _DonState extends State<Don> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) {
-                    return DonSpontaneous();
+                    return Spontaneous();
                   }),
                 );
               },

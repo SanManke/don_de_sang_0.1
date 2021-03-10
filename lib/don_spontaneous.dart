@@ -1,57 +1,57 @@
 import 'package:flutter/material.dart';
+import 'dart:async';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
-class DonSpontaneous extends StatefulWidget {
+class Spontaneous extends StatefulWidget {
   @override
-  _DonSpontaneousState createState() => _DonSpontaneousState();
+  _SpontaneousState createState() => _SpontaneousState();
 }
 
-class _DonSpontaneousState extends State<DonSpontaneous> {
+class _SpontaneousState extends State<Spontaneous> {
+
+  List<String> Names = [
+    'Woodens Fanfan', 'Didier Ganthier', 'Dany Augustin', 'Sebastien Gregor', 'Marving Duplan', 'Dave Janvier',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-        children: [
-          _top(),
-          SizedBox(height: 100,),
+      appBar: AppBar(
+        backgroundColor: Color(0xffb60d29),
+        title: Text('Spontaneous'),
 
-        ],
       ),
+      body: Container(
+        child: ListView.builder(
+            itemBuilder: (_,int index) => EachList(this.Names[index]),
+          itemCount: this.Names.length,
+        ),
+      )
     );
   }
 }
 
+class EachList extends StatelessWidget {
 
-_top() {
-  return Container(
-    padding: EdgeInsets.all(16.0),
-    decoration: BoxDecoration(
-      color: Color(0xffb60d29),
-    ),
-    child: Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+  final String name;
+  EachList(this.name);
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Container(
+        padding: EdgeInsets.all(30),
+        child: Row(
           children: [
-            Row(
-              children: [
-                CircleAvatar(
-                  backgroundImage: AssetImage("assets/woodens.jpg"),
-                ),
-                SizedBox(
-                  width: 10.0,
-                ),
-                Text(
-                  'DON Spontaneous',
-                  style: TextStyle(
-                      fontFamily: 'BebasNeue',
-                      fontSize: 30.0,
-                      color: Colors.white),
-                ),
-              ],
-            ),
+            CircleAvatar(child: Text(name[0]),),
+            Padding(padding: EdgeInsets.only(right: 10.0)),
+            Text(name),
           ],
         ),
-      ],
-    ),
-  );
+      ),
+    );
+  }
 }

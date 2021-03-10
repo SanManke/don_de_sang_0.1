@@ -1,6 +1,7 @@
 import 'package:don_de_sang/don_page.dart';
 import 'package:flutter/material.dart';
 import 'griddashboard.dart';
+import 'request.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -27,7 +28,7 @@ class _DashboardState extends State<Dashboard> {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return Don();
+                            return Request();
                           },
                         ),
                       );
@@ -38,12 +39,13 @@ class _DashboardState extends State<Dashboard> {
                           fontWeight: FontWeight.bold
                       ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ],
             ),
           ),
+
           SizedBox(
             height: 40,
           ),
