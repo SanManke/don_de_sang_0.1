@@ -1,5 +1,5 @@
 
-import 'package:don_de_sang/dashboard.dart';
+import 'package:don_de_sang/dashboard/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

@@ -1,4 +1,4 @@
-import 'package:don_de_sang/don_regular.dart';
+import 'package:don_de_sang/don/don_regular.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'don_spontaneous.dart';
