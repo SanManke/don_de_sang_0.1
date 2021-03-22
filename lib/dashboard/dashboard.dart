@@ -1,8 +1,9 @@
 import 'package:don_de_sang/don/don_page.dart';
 import 'package:flutter/material.dart';
+import '../settings.dart';
 import 'griddashboard.dart';
 import '../request.dart';
-import 'package:don_de_sang/profil/settings.dart';
+
 
 class Dashboard extends StatefulWidget {
   @override
@@ -29,7 +30,7 @@ class _DashboardState extends State<Dashboard> {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return Settings();
+                            return Don();
                           },
                         ),
                       );
