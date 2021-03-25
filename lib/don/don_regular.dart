@@ -89,14 +89,14 @@ class _Don_RegularState extends State<Don_Regular> {
                   _selectDate(context);
                 });
               },
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.symmetric(vertical:20, horizontal: 50),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
               ),
               color: Color(0xffb60d29),
               child: Text(
                 'Availability',
-                style: TextStyle(fontFamily: 'BebasNeue', color: Colors.white),
+                style: TextStyle(fontFamily: 'BebasNeue', color: Colors.white, fontSize: 25),
               ),
             ),
           )

@@ -1,4 +1,7 @@
+import 'package:don_de_sang/dashboard/dashboard_2.dart';
 import 'package:don_de_sang/don/don_page.dart';
+import 'package:don_de_sang/don/sponta.dart';
+import 'package:don_de_sang/request%202.dart';
 import 'package:flutter/material.dart';
 import '../settings.dart';
 import 'griddashboard.dart';
@@ -30,11 +33,14 @@ class _DashboardState extends State<Dashboard> {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return Don();
+                            return Request2();
                           },
                         ),
                       );
                     },
+                      padding: EdgeInsets.all(15),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15)),
                       child :Text('Dashboard', style: TextStyle(fontFamily: 'BebasNeue',
                           color: Colors.red,
                           fontSize: 40,
@@ -52,6 +58,46 @@ class _DashboardState extends State<Dashboard> {
             height: 40,
           ),
           GridDashboard(),
+          RaisedButton(onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return Settings();
+                },
+              ),
+            );
+          },
+            padding: EdgeInsets.all(15),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15)),
+            child :Text('Settings', style: TextStyle(fontFamily: 'BebasNeue',
+                color: Colors.red,
+                fontSize: 20,
+                fontWeight: FontWeight.bold
+            ),
+            ),
+          ),
+          RaisedButton(onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return Request();
+                },
+              ),
+            );
+          },
+            padding: EdgeInsets.all(15),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15)),
+            child :Text('Request', style: TextStyle(fontFamily: 'BebasNeue',
+                color: Colors.red,
+                fontSize: 20,
+                fontWeight: FontWeight.bold
+            ),
+            ),
+          ),
         ],
       ),
     );

@@ -1,7 +1,7 @@
 import 'package:don_de_sang/don/don_regular.dart';
+import 'package:don_de_sang/don/sponta.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'don_spontaneous.dart';
 
 class Don extends StatefulWidget {
   @override
@@ -12,12 +12,17 @@ class _DonState extends State<Don> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xffb60d29),
+        title: Text('Regular'),
+      ),
       body: ListView(
         children: [
-          _top(),
-          SizedBox(height: 150.0,),
+          SizedBox(
+            height: 150.0,
+          ),
           Container(
-            padding: EdgeInsets.symmetric(vertical: 25),
+            padding: EdgeInsets.symmetric(vertical: 25, horizontal: 40),
             width: double.infinity,
             child: RaisedButton(
               elevation: 5,
@@ -43,7 +48,7 @@ class _DonState extends State<Don> {
             ),
           ),
           Container(
-            padding: EdgeInsets.symmetric(vertical: 25),
+            padding: EdgeInsets.symmetric(vertical: 25, horizontal: 40),
             width: double.infinity,
             child: RaisedButton(
               elevation: 5,
@@ -51,7 +56,7 @@ class _DonState extends State<Don> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) {
-                    return Spontaneous();
+                    return ListSpontaneous();
                   }),
                 );
               },
@@ -67,41 +72,6 @@ class _DonState extends State<Don> {
                     fontWeight: FontWeight.bold),
               ),
             ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  _top() {
-    return Container(
-      padding: EdgeInsets.all(16.0),
-      decoration: BoxDecoration(
-        color: Color(0xffb60d29),
-      ),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  CircleAvatar(
-                    backgroundImage: AssetImage("assets/woodens.jpg"),
-                  ),
-                  SizedBox(
-                    width: 10.0,
-                  ),
-                  Text(
-                    'DON',
-                    style: TextStyle(
-                        fontFamily: 'BebasNeue',
-                        fontSize: 30.0,
-                        color: Colors.white),
-                  ),
-                ],
-              ),
-            ],
           ),
         ],
       ),
