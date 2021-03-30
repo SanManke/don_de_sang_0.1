@@ -17,33 +17,88 @@ class _Request2State extends State<Request2> {
 
   Widget _buildBeneficiary() {
     return TextFormField(
-      decoration: InputDecoration(labelText: 'Beneficiary'),
-      // ignore: missing_return
-      validator: (String value) {
-        if(value.isEmpty){
-          return 'Text is Required';
+        decoration: InputDecoration(labelText: 'Beneficiary', border: OutlineInputBorder(),),
+        // ignore: missing_return
+        validator: (String value) {
+          if(value.isEmpty){
+            return 'Name is Required';
+          }
+
+          return null;
+        },
+        onSaved: (String value) {
+          _beneficiary = value;
         }
-      },
-      onSaved: (String value) {
-        _beneficiary = value;
-      }
     );
   }
 
   Widget _buildBloodG() {
-    return null;
+    return TextFormField(
+          decoration: InputDecoration(labelText: 'Blood Group',border: OutlineInputBorder()),
+          // ignore: missing_return
+          validator: (String value) {
+            if(value.isEmpty){
+              return 'Blood Group is Required';
+            }
+
+            return null;
+          },
+          onSaved: (String value) {
+            _bloodG = value;
+          }
+    );
   }
 
   Widget _buildhospital() {
-    return null;
+    return TextFormField(
+          decoration: InputDecoration(labelText: 'Hospital',border: OutlineInputBorder(),),
+          // ignore: missing_return
+          validator: (String value) {
+            if(value.isEmpty){
+              return 'Hospital is Required';
+            }
+
+            return null;
+          },
+          onSaved: (String value) {
+            _hospital = value;
+          }
+    );
   }
 
   Widget _buildname() {
-    return null;
+    return TextFormField(
+          decoration: InputDecoration(labelText: 'Name',border: OutlineInputBorder()),
+          // ignore: missing_return
+          validator: (String value) {
+            if(value.isEmpty){
+              return 'Name is Required';
+            }
+
+            return null;
+          },
+          onSaved: (String value) {
+            _name = value;
+          }
+    );
   }
 
   Widget _buildPhone() {
-    return null;
+    return TextFormField(
+          decoration: InputDecoration(labelText: 'Phone',border: OutlineInputBorder()),
+          keyboardType: TextInputType.phone,
+          // ignore: missing_return
+          validator: (String value) {
+            if(value.isEmpty){
+              return 'Phone Number is Required';
+            }
+
+            return null;
+          },
+          onSaved: (String value) {
+            _phone = value;
+          }
+    );
   }
 
   @override
@@ -55,20 +110,50 @@ class _Request2State extends State<Request2> {
         ),
       body: Container(
         margin: EdgeInsets.all(24),
-        child: Form(child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: Form(
+          key: _formKey,
+          child: ListView(
+         padding: EdgeInsets.all(16),
           children: [
             _buildBeneficiary(),
-           // _buildBloodG(),
-            //_buildhospital(),
-            //_buildname(),
-            //_buildPhone(),
-            SizedBox(height: 100,),
+            SizedBox(height: 15,),
+            _buildBloodG(),
+            SizedBox(height: 15,),
+            _buildhospital(),
+            SizedBox(height: 15,),
+            _buildname(),
+            SizedBox(height: 15,),
+            _buildPhone(),
+            SizedBox(height: 50,),
             RaisedButton(
-            child: Text('Submit'),
-              onPressed: () => {},
-        )
+            child: Text('Submit',
+            style: TextStyle(
+                color: Color(0xffb60d29),
+                fontSize: 18,
+                fontWeight: FontWeight.bold
+            ),
+            ),
+              onPressed: () {
+              if(!_formKey.currentState.validate()){
+                return;
+              };
 
+              _formKey.currentState.save();
+
+              print(_beneficiary);
+              print(_bloodG);
+              print(_hospital);
+              print(_name);
+              print(_phone);
+
+
+              },
+              padding: EdgeInsets.all(15),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15),
+
+              )
+            )
           ],
         ),),
       ),
