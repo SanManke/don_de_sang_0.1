@@ -1,3 +1,4 @@
+import 'package:don_de_sang/home_page.dart';
 import 'package:flutter/material.dart';
 import 'login_page.dart';
 import 'dart:async';
@@ -19,11 +20,11 @@ class _MyAppState extends State<MyApp> {
     super.initState();
     Future.delayed(
       Duration(seconds: 3),
-      () {
+          () {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => LoginPage(),
+            builder: (context) => HomePage(),
           ),
         );
       },
@@ -47,22 +48,22 @@ class _MyAppState extends State<MyApp> {
               Align(
                 alignment: Alignment.topCenter,
                 child: Text('Gout San Sove Lavi',
-                style: TextStyle(
-                  fontFamily: 'BebasNeue',
-                  fontSize: 30.0,
-                  color: Color(0xffe41134),
-                ),
+                  style: TextStyle(
+                    fontFamily: 'BebasNeue',
+                    fontSize: 30.0,
+                    color: Color(0xffe41134),
+                  ),
                 ),
               ),
-              SizedBox(height: 580,),
+              SizedBox(height: MediaQuery.of(context).size.height),
               Container(
                 child: Align(
                   alignment: Alignment.bottomCenter,
                   child: Text('POWERED BY SPOTLIGHT',
-                  style: TextStyle(
-                    fontFamily: 'BebasNeue',
-                  color: Color(0xffe41134)
-                  ),
+                    style: TextStyle(
+                        fontFamily: 'BebasNeue',
+                        color: Color(0xffe41134)
+                    ),
                   ),
                 ),
               ),
