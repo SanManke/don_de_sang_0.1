@@ -20,6 +20,8 @@ class _HomePageState extends State<HomePage> {
     ProfileScreen()
   ];
 
+  final PageController controller = PageController(initialPage: 0);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +48,12 @@ class _HomePageState extends State<HomePage> {
         notchSmoothness: NotchSmoothness.verySmoothEdge,
         leftCornerRadius: 32,
         rightCornerRadius: 32,
-        onTap: (index) => setState(() => selectedPage = index),
+        onTap: (index){
+          setState(() {
+            selectedPage = index;
+          });
+          //controller.jumpToPage(index);
+        },
         //other params
       ),
     );
