@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "199686131716",
+    "project_id": "alerterouge-3595c",
+    "storage_bucket": "alerterouge-3595c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:199686131716:android:10c7a81e59e70282fd2551",
+        "android_client_info": {
+          "package_name": "com.application.alerterouge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "199686131716-mcvtagh3i75aum3tffgn6irr9tjt9gn4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuLTVO-GGXAhXMNSDmKE8hUrmLarJhVwM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "199686131716-mcvtagh3i75aum3tffgn6irr9tjt9gn4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

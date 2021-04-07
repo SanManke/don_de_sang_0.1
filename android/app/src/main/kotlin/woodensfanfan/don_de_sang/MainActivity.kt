@@ -1,4 +1,4 @@
-package woodensfanfan.don_de_sang
+package com.application.alerterouge
 
 import io.flutter.embedding.android.FlutterActivity
 
