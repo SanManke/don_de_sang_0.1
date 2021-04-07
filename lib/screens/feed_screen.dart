@@ -1,110 +1,99 @@
+import 'dart:async';
+import 'dart:math';
 import 'dart:ui';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:don_de_sang/requestlist.dart';
+import 'package:don_de_sang/topscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:flutter_tindercard/flutter_tindercard.dart';
 
-class FeedScreen extends StatelessWidget {
+class FeedScreen extends StatefulWidget {
+  @override
+  _FeedScreenState createState() => _FeedScreenState();
+}
+
+class _FeedScreenState extends State<FeedScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Container(
-        child: SafeArea(
-          child: Padding(
-            padding: EdgeInsets.all(32.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Welcome",
-                  style: TextStyle(
-                    fontSize: 44,
-                    color: Colors.redAccent,
-                    fontWeight: FontWeight.w900,
-                  ),
-                  textAlign: TextAlign.left,
-                ),
-                SizedBox(
-                  height: 100,
-                ),
-                Container(
-                  height: 500,
-                  child: Swiper(
-                    itemCount: 4,
-                    itemWidth: MediaQuery.of(context).size.width - 2 * 64,
-                    layout: SwiperLayout.STACK,
-                    itemBuilder: (context, index) {
-                      return Stack(
-                        children: [
-                          Column(
-                            children: [
-                              Card(
-                                elevation: 8.0,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(32.0)),
-                                color: Colors.white,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(32.0),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SizedBox(
-                                        height: 100,
-                                      ),
-                                      Text(
-                                        "Request",
-                                        style: TextStyle(
-                                          fontSize: 34,
-                                          fontWeight: FontWeight.w900,
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 32,
-                                      ),
-                                      Text(
-                                        "Didier Ganthier",
-                                        style: TextStyle(
-                                          fontSize: 24,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      ),
-                                      Row(
-                                        children: [
-                                          Text(
-                                            "Details",
-                                            style: TextStyle(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w400,
-                                            ),
-                                          ),
-                                          Icon(Icons.arrow_forward)
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-                          Positioned(
-                            left: 50,
-                            top: 0,
-                            child: CircleAvatar(
-                              backgroundImage: AssetImage("assets/didier.jpeg"),
-                              radius: 50,
+      body: StreamBuilder<QuerySnapshot>(
+        stream: FirebaseFirestore.instance.collection("requests").snapshots(),
+        builder: (context, snapshot) {
+          if(snapshot.connectionState == ConnectionState.waiting)
+          {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          else
+          {
+            if(snapshot.data != null)
+            {
+              if(snapshot.data.docs.length != 0)
+              {
+                CardController controller = CardController();
+                Timer(Duration(seconds: 5), (){
+                  controller.triggerLeft();
+                });
+                return TinderSwapCard(
+                  orientation: AmassOrientation.BOTTOM,
+                  totalNum: snapshot.data.docs.length,
+                  stackNum: 3,
+                  swipeEdge: 4.0,
+                  maxWidth: MediaQuery.of(context).size.width * 0.9,
+                  maxHeight: MediaQuery.of(context).size.width * 0.9,
+                  minWidth: MediaQuery.of(context).size.width * 0.8,
+                  minHeight: MediaQuery.of(context).size.width * 0.8,
+                  cardBuilder: (context, index) => Card(
+                    child: Container(
+                      color: Colors.redAccent,
+                      child: Center(
+                        child: Text(snapshot.data.docs[index]["firstname"],
+                            style: TextStyle(
+                              color: Colors.white
                             ),
-                          ),
-                        ],
-                      );
-                    },
+                        ),
+                      ),
+                    )
                   ),
-                )
-              ],
-            ),
-          ),
-        ),
-      ),
+                  cardController: controller,
+                  swipeUpdateCallback:
+                      (DragUpdateDetails details, Alignment align) {
+                    /// Get swiping card's alignment
+                    if (align.x < 0) {
+                      //Card is LEFT swiping
+                    } else if (align.x > 0) {
+                      //Card is RIGHT swiping
+                    }
+                  },
+                  swipeCompleteCallback: (CardSwipeOrientation orientation, int index) {
+                    Timer(Duration(seconds: 5), (){
+                      controller.triggerLeft();
+                    });
+                    if(index == snapshot.data.docs.length - 1){
+                      setState(() {
+                        index = 0;
+                      });
+                    }
+                  },
+                );
+              }
+              else
+              {
+                return Text("Data length is 0");
+              }
+            }
+            else
+            {
+              return Center(
+                child: Text("No results found"),
+              );
+            }
+          }
+        },
+      )
     );
   }
 }
