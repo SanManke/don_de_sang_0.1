@@ -77,6 +77,33 @@ class LoginPage extends StatelessWidget {
   }
 }
 
+Widget input(String name, bool pass)
+{
+  return Positioned(
+    left: 10,
+    top: pass? 290 : 210,
+    child: Material(
+      elevation: 10,
+      child: Container(
+        width: 320,
+        child: TextFormField(
+          decoration: InputDecoration(
+            fillColor: Colors.red.withOpacity(0.2),
+            filled: true,
+            labelText: name,
+            labelStyle: GoogleFonts.montserrat(
+              color: Colors.black.withOpacity(0.7),
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            ),
+            prefixIcon: pass? Icon(Icons.lock_outline_sharp, color: Colors.redAccent,) : Icon(Icons.email, color: Colors.redAccent,),
+          ),
+        ),
+      ),
+    ),
+  );
+}
+
 class DrawClip extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
