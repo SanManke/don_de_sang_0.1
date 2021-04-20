@@ -1,9 +1,11 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:don_de_sang/login_page.dart';
 import 'package:don_de_sang/screens/feed_screen.dart';
 import 'package:don_de_sang/screens/notifications_screen.dart';
 import 'package:don_de_sang/screens/profile_screen.dart';
 import 'package:don_de_sang/screens/requests_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -62,7 +64,7 @@ class _HomePageState extends State<HomePage> {
                   shape: StadiumBorder(),
                   color: Colors.red,
                   onPressed: () {
-                    Navigator.pop(context);
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginPage()));
                   },
                 ),
               ],

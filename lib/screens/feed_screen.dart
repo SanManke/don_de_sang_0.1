@@ -1,12 +1,7 @@
 import 'dart:async';
-import 'dart:math';
 import 'dart:ui';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:don_de_sang/requestlist.dart';
-import 'package:don_de_sang/topscreen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutter_tindercard/flutter_tindercard.dart';
 
 class FeedScreen extends StatefulWidget {
