@@ -25,7 +25,7 @@ class _FeedScreenState extends State<FeedScreen> {
             if (snapshot.data.docs.length != 0) {
               CardController controller = CardController();
               Timer(Duration(seconds: 5), () {
-                controller.triggerLeft();
+                controller?.triggerLeft();
               });
               return TinderSwapCard(
                 orientation: AmassOrientation.BOTTOM,

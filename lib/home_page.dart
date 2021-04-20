@@ -31,45 +31,7 @@ class _HomePageState extends State<HomePage> {
       body: _pageOptions[selectedPage], //destination screen
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          showDialog(
-            context: context,
-            builder: (context) => AlertDialog(
-              title: Text("Request Blood"),
-              actions: [
-                MaterialButton(
-                  child: Text('Request'),
-                  elevation: 10.0,
-                  shape: StadiumBorder(),
-                  color: Colors.green,
-                  onPressed: () {
-                    FirebaseFirestore.instance
-                        .collection("requests")
-                        .add({
-                          "delai": DateTime.now(),
-                          "firstname": "Marc Alain",
-                          "groupe_sanguin": "AB+",
-                          "hopital": "Dash",
-                          "lastname": "Boucicault"
-                        })
-                        .then((value) => print("success"))
-                        .catchError((error) => print(error.toString()));
-                  },
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                MaterialButton(
-                  child: Text('Request'),
-                  elevation: 10.0,
-                  shape: StadiumBorder(),
-                  color: Colors.red,
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginPage()));
-                  },
-                ),
-              ],
-            ),
-          );
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginPage()));
         },
         child: Image.asset("assets/blood_icon.jpg"),
       ),

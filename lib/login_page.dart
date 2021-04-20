@@ -7,6 +7,7 @@ class LoginPage extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: true,
         body: Container(
           height: size.height,
           width: size.width,
@@ -38,8 +39,8 @@ class LoginPage extends StatelessWidget {
                     child: Container(
                       child: Image.asset(
                         "assets/blood_icon.jpg",
-                        width: 60,
-                        height: 60,
+                        width: 100,
+                        height: 100,
                       ),
                     ),
                   ),
@@ -67,6 +68,8 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                   ),
+                  input("Email", false),
+                  input("Password", true),
                 ],
               ),
             ],
@@ -81,6 +84,7 @@ Widget input(String name, bool pass)
 {
   return Positioned(
     left: 10,
+    right: 10,
     top: pass? 290 : 210,
     child: Material(
       elevation: 10,
@@ -92,7 +96,7 @@ Widget input(String name, bool pass)
             filled: true,
             labelText: name,
             labelStyle: GoogleFonts.montserrat(
-              color: Colors.black.withOpacity(0.7),
+              color: Colors.white,
               fontWeight: FontWeight.bold,
               fontSize: 16,
             ),
